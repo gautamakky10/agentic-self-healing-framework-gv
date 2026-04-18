@@ -1,0 +1,167 @@
+# AI Self-Healing Report
+
+- **2026-04-17T23:29:39.685311200** [Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-17T23:29:39.887699900** [Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-17T23:29:47.421908800** [Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-17T23:32:25.228911300** [Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-17T23:32:25.378373100** [Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-17T23:32:32.861311400** [Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T22:28:48.572492900** [Login-Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-18T22:28:48.833777800** [Login-Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-18T22:28:56.399223** [Login-Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T22:41:07.803521700** [Login-Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-18T22:41:08.014075500** [Login-Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-18T22:41:15.646836100** [Login-Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T22:45:09.069915900** [Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-18T22:45:09.194623200** [Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-18T22:45:16.578747600** [Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T22:56:07.257130200** [Step-1]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-18T22:57:05.042059300** [Step-1]: 🩺 **Healed!** Old: `input.broken-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-18T22:57:12.670487** [Step-2]: 🩺 **Healed!** Old: `#broken-login-btn` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T22:57:37.619040200** [Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-18T22:57:37.735340100** [Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-18T22:57:45.210879400** [Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T23:01:19.653594600** [Step-1]: 🩺 **Healed!** Old: `input.old-email-field` -> New: `//input[@type='email']` (Confidence: 0.98)
+- **2026-04-18T23:01:19.776627500** [Step-2]: Stable element located successfully. Locator: `//input[@type='password']`
+- **2026-04-18T23:01:27.208234600** [Step-3]: 🩺 **Healed!** Old: `#legacy-login-btn-99` -> New: `//button[contains(., 'Sign in')]` (Confidence: 0.98)
+- **2026-04-18T23:01:40.644892800** [Step-4]: 🩺 **Healed!** Old: `//a[contains(., 'Products')]` -> New: `//body` (Confidence: 0.98)
+- **2026-04-18T23:01:48.050492800** [Step-5]: 🩺 **Healed!** Old: `#btn-legacy-cart-add-42` -> New: `//body` (Confidence: 0.98)
+- **2026-04-18T23:18:09.588029400** [3]: 🩺 **Healed!** Old: `#broken-login-btn` -> New: `//button[text()='Sign in']` (Confidence: 0.98)
+- **2026-04-18T23:27:37.834822400** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-18T23:27:38.912199300** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-18T23:27:47.095466300** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-18T23:27:55.867523900** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-18T23:29:41.376507600** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-18T23:29:42.369425500** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-18T23:29:50.565188200** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-18T23:29:59.399958900** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-18T23:30:55.657518200** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-18T23:30:56.644739100** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-18T23:31:04.832108700** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-18T23:31:13.544550800** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-18T23:31:15.157296200** [5]: Stable element located successfully. Locator: `.shopping_cart_link`
+- **2026-04-18T23:31:23.217780600** [6]: 🩺 **Healed!** Old: `#broken-checkout` -> New: `#checkout` (Confidence: 0.94)
+- **2026-04-18T23:31:24.885809700** [7]: Stable element located successfully. Locator: `#first-name`
+- **2026-04-18T23:31:33.017507400** [8]: 🩺 **Healed!** Old: `#broken-last-name` -> New: `#last-name` (Confidence: 0.92)
+- **2026-04-18T23:31:34.677473500** [9]: Stable element located successfully. Locator: `#postal-code`
+- **2026-04-18T23:31:35.619963700** [10]: Stable element located successfully. Locator: `#continue`
+- **2026-04-18T23:31:43.744525100** [11]: 🩺 **Healed!** Old: `#broken-finish` -> New: `#finish` (Confidence: 0.95)
+- **2026-04-18T23:31:52.482223500** [12]: 🩺 **Healed!** Old: `#broken-menu` -> New: `#react-burger-menu-btn` (Confidence: 0.96)
+- **2026-04-18T23:31:55.099812200** [13]: Stable element located successfully. Locator: `#logout_sidebar_link`
+- **2026-04-18T23:33:23.173720900** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-18T23:33:24.143616800** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-18T23:33:32.205808400** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-18T23:33:40.844697200** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-18T23:33:42.431094800** [5]: Stable element located successfully. Locator: `.shopping_cart_link`
+- **2026-04-18T23:33:50.465914300** [6]: 🩺 **Healed!** Old: `#broken-checkout` -> New: `#checkout` (Confidence: 0.94)
+- **2026-04-18T23:33:52.099062100** [7]: Stable element located successfully. Locator: `#first-name`
+- **2026-04-18T23:34:00.148115200** [8]: 🩺 **Healed!** Old: `#broken-last-name` -> New: `#last-name` (Confidence: 0.92)
+- **2026-04-18T23:34:01.795287** [9]: Stable element located successfully. Locator: `#postal-code`
+- **2026-04-18T23:34:02.686323500** [10]: Stable element located successfully. Locator: `#continue`
+- **2026-04-18T23:34:10.681962200** [11]: 🩺 **Healed!** Old: `#broken-finish` -> New: `#finish` (Confidence: 0.95)
+- **2026-04-18T23:34:19.424992200** [12]: 🩺 **Healed!** Old: `#broken-menu` -> New: `#react-burger-menu-btn` (Confidence: 0.96)
+- **2026-04-18T23:34:21.995077700** [13]: Stable element located successfully. Locator: `#logout_sidebar_link`
+- **2026-04-18T23:42:23.079173** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-18T23:42:24.041052** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-18T23:42:32.074893300** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-18T23:42:40.710626300** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-18T23:42:42.307768100** [5]: Stable element located successfully. Locator: `.shopping_cart_link`
+- **2026-04-18T23:42:50.316512300** [6]: 🩺 **Healed!** Old: `#broken-checkout` -> New: `#checkout` (Confidence: 0.94)
+- **2026-04-18T23:42:51.970723** [7]: Stable element located successfully. Locator: `#first-name`
+- **2026-04-18T23:43:58.950297700** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-18T23:43:59.918950800** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-18T23:44:07.996904900** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-18T23:44:16.708787800** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-18T23:44:18.312770200** [5]: Stable element located successfully. Locator: `.shopping_cart_link`
+- **2026-04-18T23:44:26.321433200** [6]: 🩺 **Healed!** Old: `#broken-checkout` -> New: `#checkout` (Confidence: 0.94)
+- **2026-04-18T23:44:27.974461** [7]: Stable element located successfully. Locator: `#first-name`
+- **2026-04-18T23:44:36.063143100** [8]: 🩺 **Healed!** Old: `#broken-last-name` -> New: `#last-name` (Confidence: 0.92)
+- **2026-04-18T23:44:37.747581900** [9]: Stable element located successfully. Locator: `#postal-code`
+- **2026-04-18T23:44:38.650724500** [10]: Stable element located successfully. Locator: `#continue`
+- **2026-04-18T23:44:46.655387300** [11]: 🩺 **Healed!** Old: `#broken-finish` -> New: `#finish` (Confidence: 0.95)
+- **2026-04-18T23:44:55.414720300** [12]: 🩺 **Healed!** Old: `#broken-menu` -> New: `#react-burger-menu-btn` (Confidence: 0.96)
+- **2026-04-18T23:44:58.026655200** [13]: Stable element located successfully. Locator: `#logout_sidebar_link`
+- **2026-04-19T00:17:38.172356700** [1]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:17:46.130394100** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:17:47.675392700** [3]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:17:55.678322400** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:17:57.223480500** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:18:05.168351100** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:18:06.717262900** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:18:14.817305800** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:20:17.736837200** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T00:20:25.798339500** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:20:27.388643800** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T00:20:36.512609500** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:20:38.174247100** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:20:46.316234600** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:20:47.892633** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:20:56.022882800** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:28:31.020012300** [1]: Stable element located successfully. Locator: `#user-name`
+- **2026-04-19T00:28:32.050211700** [2]: Stable element located successfully. Locator: `#password`
+- **2026-04-19T00:28:40.212719900** [3]: 🩺 **Healed!** Old: `#broken-login` -> New: `#login-button` (Confidence: 0.98)
+- **2026-04-19T00:28:49.079843** [4]: 🩺 **Healed!** Old: `#broken-add-cart` -> New: `#add-to-cart-sauce-labs-backpack` (Confidence: 0.95)
+- **2026-04-19T00:28:50.661644700** [5]: Stable element located successfully. Locator: `.shopping_cart_link`
+- **2026-04-19T00:28:58.796031700** [6]: 🩺 **Healed!** Old: `#broken-checkout` -> New: `#checkout` (Confidence: 0.94)
+- **2026-04-19T00:29:00.463258** [7]: Stable element located successfully. Locator: `#first-name`
+- **2026-04-19T00:31:08.166950100** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T00:31:16.444984500** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T00:31:18.029350700** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T00:31:27.260974100** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:31:28.916645400** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:31:37.122960900** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:31:38.671477700** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:31:47.643769300** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:35:06.141551500** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T00:35:14.282127700** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T00:35:15.864599400** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T00:35:25.028613500** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:35:26.694771900** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:35:34.775681300** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:35:36.327707600** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:35:44.719512800** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:49:16.266504600** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T00:49:24.430341200** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T00:49:26.013069700** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T00:49:35.277267600** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:49:36.960539800** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:49:45.101375300** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T00:49:46.642227700** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T00:49:55.523097800** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:38:03.425672700** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T01:38:11.727314700** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T01:38:13.310699900** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T01:38:22.560979900** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:38:24.605334** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:38:49.048967** [TC1-Step-1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T01:38:57.081305300** [TC1-Step-2]: 🩺 **Healed!** Old: `.broken-pass` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T01:38:58.633964100** [TC1-Step-3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T01:39:08.822921500** [TC2-Step-1]: 🩺 **Healed!** Old: `.broken-products-link` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:39:11.535006900** [TC3-Step-1]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:39:26.794961100** [TC4-Step-1]: 🩺 **Healed!** Old: `.broken-fullname` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:39:28.360883100** [TC4-Step-2]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:39:36.694728700** [TC5-Step-1]: 🩺 **Healed!** Old: `.broken-settings` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:41:39.688442100** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T01:41:47.824063900** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T01:41:49.389467700** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T01:42:00.228468** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:42:01.913718300** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:42:10.060884500** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:42:11.632931800** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:42:19.741923** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:44:45.650019100** [1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T01:44:53.922439800** [2]: 🩺 **Healed!** Old: `.broken-password-field` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T01:44:55.514519400** [3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T01:45:04.687852100** [4]: 🩺 **Healed!** Old: `#broken-products` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:45:06.345076800** [5]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:45:14.453218100** [6]: 🩺 **Healed!** Old: `.broken-checkout-field` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:45:16.004680100** [7]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:45:24.233762** [8]: 🩺 **Healed!** Old: `#broken-logout` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:45:48.566993400** [TC1-Step-1]: Stable element located successfully. Locator: `input[type='email']`
+- **2026-04-19T01:45:56.662072800** [TC1-Step-2]: 🩺 **Healed!** Old: `.broken-pass` -> New: `input[type='password']` (Confidence: 0.98)
+- **2026-04-19T01:45:58.239485700** [TC1-Step-3]: Stable element located successfully. Locator: `//button[contains(., 'Sign in')]`
+- **2026-04-19T01:46:22.076926** [TC2-Step-1]: 🩺 **Healed!** Old: `.broken-products-link` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:46:24.842060400** [TC3-Step-1]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:46:33.165546100** [TC4-Step-1]: 🩺 **Healed!** Old: `.broken-fullname` -> New: `#root` (Confidence: 0.98)
+- **2026-04-19T01:46:34.706791** [TC4-Step-2]: Stable element located successfully. Locator: `#root`
+- **2026-04-19T01:46:42.845732200** [TC5-Step-1]: 🩺 **Healed!** Old: `.broken-settings` -> New: `#root` (Confidence: 0.98)

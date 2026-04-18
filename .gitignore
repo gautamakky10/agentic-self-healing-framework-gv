@@ -1,0 +1,26 @@
+# Maven build output
+target/
+
+# Local JDK binaries and zip (too large for GitHub - download via setup-java in CI)
+jdk-21.0.2/
+jdk*.zip
+jdk*.tar.gz
+
+# Local Maven binary (too large for GitHub - use system Maven or download in CI)
+apache-maven-3.9.6/
+apache-maven*.zip
+apache-maven*.tar.gz
+
+# Allure installation and temp reports
+.allure/
+allure-report/
+allure-history/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

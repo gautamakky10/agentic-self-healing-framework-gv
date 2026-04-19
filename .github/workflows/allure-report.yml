@@ -1,4 +1,4 @@
-name: 🤖 Self-Healing UI Automation & Allure Report
+name: CI Self-Healing Test Suite
 
 on:
   push:
@@ -10,9 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
 
+  # ── Stage 1: Install Dependencies ────────────────────────────────
+  install:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
@@ -26,18 +28,75 @@ jobs:
 
       - name: 🌐 Install Google Chrome
         run: |
-          sudo apt-get update
+          sudo apt-get update -qq
           sudo apt-get install -y google-chrome-stable
           google-chrome --version
 
-      - name: 🧪 Run All Tests (Self-Healing Suite)
+      - name: 📦 Download Maven Dependencies
+        run: mvn dependency:resolve -q
+
+      - name: 💾 Cache Maven Packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+
+  # ── Stage 2: Lint and Validate ───────────────────────────────────
+  lint:
+    name: Lint and Validate
+    runs-on: ubuntu-latest
+    needs: install
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ☕ Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: 🔍 Validate POM Structure
+        run: mvn validate -q
+
+      - name: 🧹 Compile Source Code
+        run: mvn compile test-compile -q
+
+      - name: ✅ Check Code Compiles Clean
+        run: echo "All Java sources compiled successfully — no syntax errors."
+
+  # ── Stage 3: Retail Role Flows ───────────────────────────────────
+  retail-role-flows:
+    name: Retail Role Flows
+    runs-on: ubuntu-latest
+    needs: lint
+    permissions:
+      contents: write
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ☕ Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: 🌐 Install Google Chrome
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y google-chrome-stable
+
+      - name: 🧪 Run Self-Healing Test Suite
         run: mvn clean test -Dtest=RetailWebsiteTest
         continue-on-error: true
 
       - name: 📊 Generate Allure Report
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
         with:
           allure_results: target/allure-results
           gh_pages: gh-pages
@@ -52,3 +111,174 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
+
+      - name: 💾 Upload Allure Results as Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: target/allure-results/
+          retention-days: 7
+
+  # ── Stage 4: Healing Report Summary ─────────────────────────────
+  healing-report-summary:
+    name: Healing Report Summary
+    runs-on: ubuntu-latest
+    needs: retail-role-flows
+    permissions:
+      contents: write
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Allure Results Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results
+          path: target/allure-results/
+
+      - name: 🗂️ Parse Results & Build Run JSON
+        id: parse
+        run: |
+          RUN_ID="${{ github.run_id }}"
+          RUN_NUMBER="${{ github.run_number }}"
+          BRANCH="${{ github.ref_name }}"
+          SHA="${{ github.sha }}"
+          EVENT="${{ github.event_name }}"
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+          TOTAL=0; PASSED=0; FAILED=0; BROKEN=0; SKIPPED=0
+          for f in target/allure-results/*.json; do
+            [ -f "$f" ] || continue
+            STATUS=$(python3 -c "import json,sys; d=json.load(open('$f')); print(d.get('status','unknown'))" 2>/dev/null || echo "unknown")
+            case "$STATUS" in
+              passed)  PASSED=$((PASSED+1))  ;;
+              failed)  FAILED=$((FAILED+1))  ;;
+              broken)  BROKEN=$((BROKEN+1))  ;;
+              skipped) SKIPPED=$((SKIPPED+1)) ;;
+            esac
+            TOTAL=$((TOTAL+1))
+          done
+
+          SELECTOR_HEALS=0
+          HEAL_LIST=""
+          for f in target/allure-results/*-attachment.txt; do
+            [ -f "$f" ] || continue
+            CONTENT=$(cat "$f")
+            if echo "$CONTENT" | grep -qi "healed"; then
+              ELEMENT=$(echo "$CONTENT" | sed 's/Healed //; s/ using locator.*//')
+              LOCATOR=$(echo "$CONTENT" | sed 's/.* using locator //')
+              HEAL_LIST="${HEAL_LIST},{\"element\":\"${ELEMENT}\",\"locator\":\"${LOCATOR}\"}"
+              SELECTOR_HEALS=$((SELECTOR_HEALS+1))
+            fi
+          done
+
+          HEAL_EVENTS="[]"
+          [ -n "$HEAL_LIST" ] && HEAL_EVENTS="[${HEAL_LIST:1}]"
+
+          if [ "$SELECTOR_HEALS" -gt 0 ]; then
+            HEAL_RATE=$(python3 -c "print(round($SELECTOR_HEALS/max($TOTAL,1)*100,1))")
+          else
+            HEAL_RATE=0
+          fi
+          TIME_SAVED=$(python3 -c "print($SELECTOR_HEALS * 2)")
+
+          cat > /tmp/run.json <<EOF
+          {
+            "runId": "${RUN_ID}",
+            "runNumber": ${RUN_NUMBER},
+            "branch": "${BRANCH}",
+            "commitSha": "${SHA}",
+            "event": "${EVENT}",
+            "generatedAt": "${TIMESTAMP}",
+            "summary": {
+              "totalTests": ${TOTAL},
+              "passed": ${PASSED},
+              "failed": ${FAILED},
+              "broken": ${BROKEN},
+              "skipped": ${SKIPPED},
+              "selectorHeals": ${SELECTOR_HEALS},
+              "flowHeals": ${SELECTOR_HEALS},
+              "estimatedTimeSavedMins": ${TIME_SAVED},
+              "healSuccessRatePct": ${HEAL_RATE}
+            },
+            "healEvents": ${HEAL_EVENTS}
+          }
+          EOF
+
+          python3 -m json.tool /tmp/run.json > /dev/null && echo "✅ run.json is valid"
+          echo "RUN_ID=${RUN_ID}" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=${TIMESTAMP}" >> $GITHUB_OUTPUT
+
+          # ── Print summary to Actions log ──────────────────────────
+          echo ""
+          echo "╔══════════════════════════════════════════════════╗"
+          echo "║        🤖 SELF-HEALING REPORT SUMMARY           ║"
+          echo "╠══════════════════════════════════════════════════╣"
+          echo "║  Run #${RUN_NUMBER} | Branch: ${BRANCH}"
+          echo "║  Commit: ${SHA:0:7}"
+          echo "╠══════════════════════════════════════════════════╣"
+          echo "║  Total Tests     : ${TOTAL}"
+          echo "║  ✅ Passed       : ${PASSED}"
+          echo "║  ❌ Failed       : ${FAILED}"
+          echo "║  🔧 Heals        : ${SELECTOR_HEALS}"
+          echo "║  ⏱ Time Saved   : ${TIME_SAVED} mins"
+          echo "║  📈 Heal Rate    : ${HEAL_RATE}%"
+          echo "╚══════════════════════════════════════════════════╝"
+
+      - name: 💾 Push Run Data to dashboard-data Branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RUN_ID="${{ github.run_id }}"
+          TIMESTAMP="${{ steps.parse.outputs.TIMESTAMP }}"
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin dashboard-data 2>/dev/null || true
+          if git ls-remote --exit-code --heads origin dashboard-data; then
+            git checkout dashboard-data
+          else
+            git checkout --orphan dashboard-data
+            git rm -rf . 2>/dev/null || true
+            mkdir -p runs
+            echo '{"runs":[]}' > history.json
+            git add history.json
+            git commit -m "chore: init dashboard-data branch"
+            git push origin dashboard-data
+          fi
+
+          mkdir -p runs
+          cp /tmp/run.json runs/${RUN_ID}.json
+          cp /tmp/run.json latest.json
+
+          python3 - <<'PYEOF'
+          import json, os
+          with open('/tmp/run.json') as f:
+              new_run = json.load(f)
+          summary_entry = {
+              "runId":       new_run["runId"],
+              "runNumber":   new_run["runNumber"],
+              "branch":      new_run["branch"],
+              "commitSha":   new_run["commitSha"],
+              "generatedAt": new_run["generatedAt"],
+              "summary":     new_run["summary"]
+          }
+          history_path = "history.json"
+          if os.path.exists(history_path):
+              with open(history_path) as f:
+                  history = json.load(f)
+          else:
+              history = {"runs": []}
+          history["runs"].insert(0, summary_entry)
+          history["runs"] = history["runs"][:50]
+          with open(history_path, "w") as f:
+              json.dump(history, f, indent=2)
+          print(f"✅ history.json updated — {len(history['runs'])} run(s) stored")
+          PYEOF
+
+          git add runs/${RUN_ID}.json latest.json history.json
+          git commit -m "data: run #${{ github.run_number }} @ ${TIMESTAMP}"
+          git push origin dashboard-data
+          echo "✅ Dashboard data pushed to dashboard-data branch"

@@ -1,5 +1,23 @@
 [
   {
+    "runId": "24653701249",
+    "runNumber": "13",
+    "workflowName": "CI Self-Healing Test Suite",
+    "repository": "gautamakky10/agentic-self-healing-framework-gv",
+    "branch": "main",
+    "commitSha": "3b91e3b99548934072913b8c0d529978a4ecd7d1",
+    "event": "push",
+    "generatedAt": "2026-04-20T07:22:59Z",
+    "totalRuns": 11,
+    "totalTestsCompleted": 11,
+    "totalSelectorHeals": 2,
+    "totalFlowHeals": 0,
+    "totalFailures": 2,
+    "estimatedTimeSaved": "1.0",
+    "healSuccessRate": "50.0",
+    "file": "runs/24653701249.json"
+  },
+  {
     "runId": "24651319308",
     "runNumber": "10",
     "workflowName": "CI Self-Healing Test Suite",
